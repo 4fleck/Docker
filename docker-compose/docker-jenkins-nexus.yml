@@ -1,0 +1,36 @@
+version: '3'
+
+
+services:
+
+  jnk:
+    build:
+      context: .
+      dockerfile: jnk.Dockerfile
+    container_name: jenkins
+    cpus: 2
+    mem_limit: 1g
+    ports:
+      - 8080:8080
+      - 50000:50000
+    tty: true
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - jenkins_home:/var/jenkins_home
+
+  nexus:
+      image: sonatype/nexus3
+      container_name: nexus
+      cpus: 2
+      mem_limit: 4g
+      tty: true
+      restart: always
+      ports:
+        - 8081:8081 
+        - 8083:8083
+      volumes:
+        - nexus_data:/nexus-data
+volumes:
+  jenkins_home:
+  nexus_data:
