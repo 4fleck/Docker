@@ -17,7 +17,17 @@
   * Nginx
   * PHP-FPM (+ Laravel)
   * MySQL
-  * Kafka (2 zookeper ,2 broker kafka-ui).
+  * Kafka (2 zookeper ,2 broker kafka-ui)
+ 
++ docker-prometheus-grafana.yml
+
+   * prometheus
+   * node-exporter
+   * grafana
+   * blackbox
+   * cadvisor
+   * pushgateway
+   * caddy
   
 + *docker-jenkins-nexus.yml*
   
