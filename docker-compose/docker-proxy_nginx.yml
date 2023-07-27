@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+  
+  nginx:
+      build: 
+          context: .
+          dockerfile: ./nginx.Dockerfile
+      container_name: proxy_nginx
+      tty: true
+      extra_hosts:
+          - "admin.jenkins.etm.corp:192.168.49.2"
+          - "admin.nexus.etm.corp:192.168.49.2"
+      ports:
+        - 80:80
+        - 8080:8080
+        - 8081:8081
+      networks:
+        - minikube-network
+      
+
+networks:
+  minikube-network:
+        name: minikube
+        driver: bridge
+        external: true
+          
+          
