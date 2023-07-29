@@ -9,8 +9,8 @@ services:
       container_name: proxy_nginx
       tty: true
       extra_hosts:
-          - "admin.jenkins.etm.corp:192.168.49.2"
-          - "admin.nexus.etm.corp:192.168.49.2"
+          - "admin.jenkins.corp:192.168.49.2"
+          - "admin.nexus.corp:192.168.49.2"
       ports:
         - 80:80
         - 8080:8080
